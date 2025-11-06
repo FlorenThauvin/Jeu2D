@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform GroundCheckLeft;
     public Transform GroundCheckRight;
     public Rigidbody2D rb;
+    public Animator animator;
     private Vector3 velocity = Vector3.zero;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
         MovePlayer(horizontalMovement);
+        animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));   
     }
     void MovePlayer(float _horizontalMovement)
     {
